@@ -8,15 +8,19 @@ Node::Node(double probability) {
 	this->probability = probability;
 }
 
-Node::~Node() {};
+Node::~Node() {
+	for (auto &child : children) {
+		delete child.second;
+	}
+};
 
 Node* Node::getChild(unsigned short key) {
 	return children[key];
 }
 
-void Node::addChild(unsigned short key, double probabilty) {
+void Node::addChild(unsigned short key, double probability) {
 	if (children.find(key) == children.end()) {
-		this->children[key] = new Node(probabilty);
+		this->children[key] = new Node(probability);
 	}
 }
 
@@ -30,7 +34,7 @@ void Node::updateProbability(double delta) {
 
 void Node::log(
 		unsigned short level,
-		double initialProbabilty
+		double initialprobability
 		) {
 
 	std::cout.precision(4);
@@ -42,7 +46,7 @@ void Node::log(
 		std::cout << "Rank " << level + 1 << ": " 
 				  << child.first 
 				  << " @ " 
-				  << (child.second->probability / initialProbabilty * 100) 
+				  << (child.second->probability / initialprobability * 100) 
 				  << "%" << std::endl;
 		child.second->log(level + 1, child.second->probability);
 	}

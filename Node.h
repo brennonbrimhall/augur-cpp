@@ -20,6 +20,6 @@ public:
 
 	void log(
 		unsigned short level = 0,
-		double initialProbabilty = 1
+		double initialprobability = 1
 		);
 };
