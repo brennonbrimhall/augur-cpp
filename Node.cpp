@@ -1,4 +1,6 @@
+#include <algorithm>
 #include <iostream>
+#include <vector>
 
 #include "Node.h"
 
@@ -8,13 +10,13 @@ Node::Node(double probability) {
 
 Node::~Node() {};
 
-Node& Node::getChild(unsigned short key) {
+Node* Node::getChild(unsigned short key) {
 	return children[key];
 }
 
 void Node::addChild(unsigned short key, double probabilty) {
 	if (children.find(key) == children.end()) {
-		this->children[key] = Node(probabilty);
+		this->children[key] = new Node(probabilty);
 	}
 }
 
@@ -28,20 +30,20 @@ void Node::updateProbability(double delta) {
 
 void Node::log(
 		unsigned short level,
-		double initalProbabilty
+		double initialProbabilty
 		) {
 
-	for (int i = 0; i < level; i++) {
-		std::cout << "\t";
-	}
-
-	std::cout.precision(2);
+	std::cout.precision(4);
 	for (auto &child : children) {
+		for (int i = 0; i < level; i++) {
+			std::cout << "\t";
+		}
+
 		std::cout << "Rank " << level + 1 << ": " 
 				  << child.first 
 				  << " @ " 
-				  << (child.second.probability / initalProbabilty * 100) 
+				  << (child.second->probability / initialProbabilty * 100) 
 				  << "%" << std::endl;
-		child.second.log(level + 1, child.second.probability);
+		child.second->log(level + 1, child.second->probability);
 	}
 }

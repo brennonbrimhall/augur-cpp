@@ -3,26 +3,31 @@
 #include "Root.h"
 
 Root::Root() {};
-Root::~Root() {};
+Root::~Root() {
+	for (auto &child : children) {
+		delete child.second;
+	}
+};
 
-Node& Root::getChild(unsigned short key) {
+Node* Root::getChild(unsigned short key) {
 	return children[key];
 }
 
 void Root::addChild(unsigned short key, double probability) {
 	if (children.find(key) == children.end()) {
-		this->children[key] = Node(probability);
+		this->children[key] = new Node(probability);
 	}
 }
 
 void Root::log() {
-	std::cout.precision(2);
+	std::cout.precision(4);
+	
 	for (auto &child : children) {
 		std::cout << "Rank 1: " 
 				  << child.first 
 				  << " @ " 
-				  << child.second.getProbability() * 100 
+				  << child.second->getProbability() * 100 
 				  << "%" << std::endl;
-		child.second.log();
+		child.second->log(1, child.second->getProbability());
 	}
 }

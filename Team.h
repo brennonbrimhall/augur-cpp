@@ -26,7 +26,7 @@ public:
 	
 	unsigned short getNumber() const;
 
-	unsigned char getQS() const;
+	unsigned short getQS() const;
 
 	unsigned short getFirstSort() const;
 	unsigned short getSecondSort() const;
@@ -36,5 +36,6 @@ public:
 
 	void win();
 
+	bool lessThan (const Team &t2) const;
 	bool operator < (const Team &t2) const;
 };

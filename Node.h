@@ -5,19 +5,21 @@
 class Node {
 private:
 	double probability;
-	std::map<unsigned short, Node> children;
 public:
+	std::map<unsigned short, Node*> children;
 	Node(double probability = 0);
 	~Node();
 
-	Node& getChild(unsigned short key);
+	Node* getChild(unsigned short key);
 	void addChild(unsigned short key, double probability);
 	
 	double getProbability() const;
 	void updateProbability(double delta);
 
+	void softDelete();
+
 	void log(
 		unsigned short level = 0,
-		double initalProbabilty = 1
+		double initialProbabilty = 1
 		);
 };

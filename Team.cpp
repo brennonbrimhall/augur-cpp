@@ -26,7 +26,7 @@ unsigned short Team::getNumber() const {
 	return this->number;
 }
 
-unsigned char Team::getQS() const {
+unsigned short Team::getQS() const {
 	return this->qs;
 }
 
@@ -54,7 +54,7 @@ void Team::win() {
 	qs += 2;
 }
 
-bool Team::operator < (const Team &team2) const {
+bool Team::lessThan (const Team &team2) const {
 	if (qs < team2.qs) {
 		return true;
 	} else if (qs > team2.qs) {
@@ -90,4 +90,8 @@ bool Team::operator < (const Team &team2) const {
 			}
 		}
 	}
+}
+
+bool Team::operator < (const Team &t2) const {
+	return !lessThan(t2);
 }

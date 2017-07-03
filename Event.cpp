@@ -110,14 +110,12 @@ void Event::updateSummary(
 	double probability) {
 
 	root.addChild(teams[0].getNumber(), 0);
-	auto currentNode = root.getChild(teams[0].getNumber());
-	currentNode.updateProbability(probability);
+	Node* currentNode = root.getChild(teams[0].getNumber());
+	currentNode->updateProbability(probability);
 
 	for (size_t i = 1; i < this->maxRank; i++) {
-		currentNode.addChild(teams[0].getNumber(), 0);
-		currentNode = root.getChild(teams[0].getNumber());
-		currentNode.updateProbability(probability);
+		currentNode->addChild(teams[i].getNumber(), 0);
+		currentNode = currentNode->getChild(teams[i].getNumber());
+		currentNode->updateProbability(probability);
 	}
-
-
 }
