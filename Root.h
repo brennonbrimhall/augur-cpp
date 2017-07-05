@@ -6,7 +6,7 @@
 
 class Root {
 private:
-	std::map<unsigned short, Node*> children;
+	std::vector<Node*> children;
 public:
 	Root();
 	~Root();

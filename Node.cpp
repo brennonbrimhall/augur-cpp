@@ -1,27 +1,41 @@
 #include <algorithm>
 #include <iostream>
-#include <vector>
 
 #include "Node.h"
 
-Node::Node(double probability) {
+Node::Node(unsigned short team, double probability) {
+	this->team = team;
 	this->probability = probability;
 }
 
 Node::~Node() {
 	for (auto &child : children) {
-		delete child.second;
+		delete child;
 	}
-};
+}
+
+unsigned short Node::getTeam() const {
+	return this->team;
+} 
 
 Node* Node::getChild(unsigned short key) {
-	return children[key];
+	for (auto &child : children) {
+		if (child->team == key) {
+			return child;
+		}
+	}
+
+	return nullptr;
 }
 
 void Node::addChild(unsigned short key, double probability) {
-	if (children.find(key) == children.end()) {
-		this->children[key] = new Node(probability);
+	for (auto &child : children) {
+		if (child->team == key) {
+			return;
+		}
 	}
+
+	children.push_back(new Node(key, probability));
 }
 
 double Node::getProbability() const {
@@ -32,10 +46,19 @@ void Node::updateProbability(double delta) {
 	probability += delta;
 }
 
+bool compareNodePointers(Node* a, Node* b) {
+	return (a->getProbability() > b->getProbability());
+}
+
 void Node::log(
 		unsigned short level,
 		double initialprobability
 		) {
+
+	std::sort(
+		children.begin(), 
+		children.end(), 
+		compareNodePointers);
 
 	std::cout.precision(4);
 	for (auto &child : children) {
@@ -44,10 +67,10 @@ void Node::log(
 		}
 
 		std::cout << "Rank " << level + 1 << ": " 
-				  << child.first 
+				  << child->team
 				  << " @ " 
-				  << (child.second->probability / initialprobability * 100) 
+				  << (child->probability / initialprobability * 100) 
 				  << "%" << std::endl;
-		child.second->log(level + 1, child.second->probability);
+		child->log(level + 1, child->probability);
 	}
 }
