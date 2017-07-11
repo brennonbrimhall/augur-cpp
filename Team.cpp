@@ -20,6 +20,18 @@ Team::Team(
 	this->fifthSort = fifthSort;
 }
 
+Team::Team(const Team&& team) {
+	this->number = team.number;
+
+	this->qs = team.qs;
+
+	this->firstSort = team.firstSort;
+	this->secondSort = team.secondSort;
+	this->thirdSort = team.thirdSort;
+	this->fourthSort = team.fourthSort;
+	this->fifthSort = team.fifthSort;
+}
+
 Team::~Team() {};
 
 unsigned short Team::getNumber() const {

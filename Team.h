@@ -22,6 +22,7 @@ public:
 		unsigned short fourthSort,
 		unsigned short fifthSort
 		);
+	Team(const Team&& team);
 	~Team();
 	
 	unsigned short getNumber() const;
