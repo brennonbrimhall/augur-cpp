@@ -79,9 +79,16 @@ void Event::calculate(size_t numSims) {
 	std::mt19937_64 generator(rand_dev());
 	std::uniform_int_distribution<unsigned long> distribution(0x00000000, 0xffffffff);
 
+	unsigned long randomPossibility = 0;
+
+	do {
+		randomPossibility = distribution(generator);
+		randomPossibility << 32;
+		randomPossibility |= distribution(generator);
+	} while (randomPossibility >= pow(2, matches.size()));
 
 	for (size_t i = 0; i < numSims; i++) {
-		this->calculatePossibility(distribution(generator));
+		this->calculatePossibility(randomPossibility);
 	}
 
 	this->root.logMonteCarlo();
