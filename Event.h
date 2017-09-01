@@ -19,16 +19,21 @@ private:
 	void winTeam(
 		std::vector<Team> &teams,
 		const unsigned short number);
-	
+
 	void updateSummary(
-		std::vector<Team> &teams, 
+		std::vector<Team> &teams,
+		double probability
+		);
+
+	void updateMonteCarloSummary(
+		std::vector<Team> &teams,
 		double probability
 		);
 
 public:
 	Event(unsigned short maxRank);
 	~Event();
-	
+
 	void addMatch(
 		unsigned short red1,
 		unsigned short red2,
@@ -48,4 +53,6 @@ public:
 		unsigned short fifthSort = 0);
 
 	void calculate();
+
+	void calculate(size_t numSims);
 };

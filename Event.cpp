@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <exception>
 #include <iostream>
+#include <random>
 #include <math.h>
 
 #include "Event.h"
@@ -51,7 +52,7 @@ void Event::addTeam(
 void Event::winTeam(
 		std::vector<Team> &teams,
 		unsigned short number) {
-	
+
 	for (auto &team : teams) {
 		if (team.getNumber() == number) {
 			team.win();
@@ -70,6 +71,20 @@ void Event::calculate() {
 	}
 
 	this->root.log();
+	std::cout << std::flush;
+}
+
+void Event::calculate(size_t numSims) {
+	std::random_device rand_dev;
+	std::mt19937_64 generator(rand_dev());
+	std::uniform_int_distribution<unsigned long> distribution(0x00000000, 0xffffffff);
+
+
+	for (size_t i = 0; i < numSims; i++) {
+		this->calculatePossibility(distribution(generator));
+	}
+
+	this->root.logMonteCarlo();
 	std::cout << std::flush;
 }
 
@@ -102,14 +117,30 @@ void Event::calculatePossibility(unsigned long i) {
 	}
 
 	std::sort(teams.begin(), teams.end());
-	this->updateSummary(teams, probability);
+	this->updateMonteCarloSummary(teams, probability);
 }
 
 void Event::updateSummary(
-	std::vector<Team> &teams, 
+	std::vector<Team> &teams,
 	double probability) {
 
 	root.addChild(teams[0].getNumber(), 0);
+	Node* currentNode = root.getChild(teams[0].getNumber());
+	currentNode->updateProbability(probability);
+
+	for (size_t i = 1; i < this->maxRank; i++) {
+		currentNode->addChild(teams[i].getNumber(), 0);
+		currentNode = currentNode->getChild(teams[i].getNumber());
+		currentNode->updateProbability(probability);
+	}
+}
+
+void Event::updateMonteCarloSummary(
+	std::vector<Team> &teams,
+	double probability) {
+
+	root.addChild(teams[0].getNumber(), 0);
+	root.updateProbability(probability);
 	Node* currentNode = root.getChild(teams[0].getNumber());
 	currentNode->updateProbability(probability);
 

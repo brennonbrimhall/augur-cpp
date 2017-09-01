@@ -1,4 +1,5 @@
 #include "Event.h"
+#include <iostream>
 
 int main() {
 	Event tvr = Event(12);
@@ -63,7 +64,7 @@ int main() {
 	tvr.addMatch(145,	6024,	3044,	358,	333,	6463);
 	tvr.addMatch(5881,	20,		4083,	6300,	4458,	3117);
 
-	tvr.calculate();
+	tvr.calculate(1000);
 
 	return 0;
 }
