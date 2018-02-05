@@ -1,10 +1,10 @@
 Copyright (c) 2018 Brennon Brimhall.  All rights reserved.
 
-Unauthorized usage, copying, and/or distribution of the included executable 
-binaries is strictly prohibited without written consent.
+Unauthorized usage, modification copying, and/or distribution of the included 
+executable binaries is strictly prohibited without written consent.
 
-Unauthorized modification, copying, and/or distribution of the source files 
-is strictly prohibited without written consent.
+Unauthorized usage, modification, copying, and/or distribution of the associated
+source files is strictly prohibited without written consent.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
