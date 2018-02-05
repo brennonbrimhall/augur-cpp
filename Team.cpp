@@ -6,8 +6,7 @@ Team::Team(
 		unsigned short firstSort,
 		unsigned short secondSort,
 		unsigned short thirdSort,
-		unsigned short fourthSort,
-		unsigned short fifthSort
+		unsigned short fourthSort
 		) {
 	this->number = number;
 
@@ -17,7 +16,6 @@ Team::Team(
 	this->secondSort = secondSort;
 	this->thirdSort = thirdSort;
 	this->fourthSort = fourthSort;
-	this->fifthSort = fifthSort;
 }
 
 Team::~Team() {};
@@ -44,10 +42,6 @@ unsigned short Team::getThirdSort() const {
 
 unsigned short Team::getFourthSort() const {
 	return this->fourthSort;
-}
-
-unsigned short Team::getFifthSort() const {
-	return this->fifthSort;
 }
 
 void Team::win() {
@@ -79,12 +73,6 @@ bool Team::lessThan (const Team &team2) const {
 						return true;
 					} else if (fourthSort > team2.fourthSort) {
 						return false;
-					} else {
-						if (fifthSort < team2.fifthSort) {
-							return true;
-						} else {
-							return false;	
-						}
 					}
 				}
 			}

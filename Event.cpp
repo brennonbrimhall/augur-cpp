@@ -37,16 +37,14 @@ void Event::addTeam(
 		unsigned short firstSort,
 		unsigned short secondSort,
 		unsigned short thirdSort,
-		unsigned short fourthSort,
-		unsigned short fifthSort) {
+		unsigned short fourthSort) {
 	teams.push_back(Team(
 					number,
 					qs,
 					firstSort,
 					secondSort,
 					thirdSort,
-					fourthSort,
-					fifthSort));
+					fourthSort));
 }
 
 void Event::winTeam(

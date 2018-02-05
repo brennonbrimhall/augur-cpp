@@ -49,8 +49,7 @@ public:
 		unsigned short firstSort = 0,
 		unsigned short secondSort = 0,
 		unsigned short thirdSort = 0,
-		unsigned short fourthSort = 0,
-		unsigned short fifthSort = 0);
+		unsigned short fourthSort = 0);
 
 	void calculate();
 

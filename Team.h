@@ -10,7 +10,6 @@ private:
 	unsigned short secondSort;
 	unsigned short thirdSort;
 	unsigned short fourthSort;
-	unsigned short fifthSort;
 
 public:
 	Team(
@@ -19,8 +18,7 @@ public:
 		unsigned short firstSort,
 		unsigned short secondSort,
 		unsigned short thirdSort,
-		unsigned short fourthSort,
-		unsigned short fifthSort
+		unsigned short fourthSort
 		);
 	~Team();
 	
