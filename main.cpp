@@ -5,10 +5,8 @@
 #include <fstream>
 
 int main(int argc, char const *argv[]) {
-	
-	if (argc == 4 || argc == 5) {
 
-		std::cout << argc << std::endl;
+	if (argc == 4 || argc == 5) {
 
 		std::ifstream teams(argv[1]);
 		std::ifstream matches(argv[2]);
