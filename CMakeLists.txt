@@ -6,20 +6,14 @@ set(CMAKE_CXX_STANDARD 11) # C++11...
 set(CMAKE_CXX_STANDARD_REQUIRED ON) #...is required...
 set(CMAKE_CXX_EXTENSIONS OFF) #...without compiler extensions like gnu++11
 
-add_executable(augur main.cpp Parser.cpp Event.cpp Match.cpp Node.cpp Root.cpp Team.cpp)
-
-install(TARGETS augur
-  RUNTIME DESTINATION bin
-  LIBRARY DESTINATION lib
-  ARCHIVE DESTINATION lib
-)
+add_subdirectory(src)
 
 install(FILES "${CMAKE_SOURCE_DIR}/License.txt"
 	DESTINATION license
 	PERMISSIONS OWNER_READ GROUP_READ WORLD_READ
 )
 
-install(FILES "${CMAKE_SOURCE_DIR}/tvr_matches.csv" "${CMAKE_SOURCE_DIR}/tvr_teams.csv"
+install(FILES "${CMAKE_SOURCE_DIR}/examples/tvr_matches.csv" "${CMAKE_SOURCE_DIR}/examples/tvr_teams.csv"
 	DESTINATION examples
 	PERMISSIONS OWNER_READ GROUP_READ WORLD_READ
 )
