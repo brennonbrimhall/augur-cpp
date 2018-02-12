@@ -14,8 +14,7 @@ Event Parser::parse(unsigned int depth, std::ifstream& teams, std::ifstream& mat
 
 		std::string temp;
 
-		unsigned short number, firstSort, secondSort, thirdSort, fourthSort, fifthSort;
-		unsigned char qs;
+		unsigned short number, qs, firstSort, secondSort, thirdSort, fourthSort, fifthSort;
 
 		std::getline(linestream, temp, ',');
 		std::stringstream numberStream(temp);
@@ -23,7 +22,8 @@ Event Parser::parse(unsigned int depth, std::ifstream& teams, std::ifstream& mat
 
 		std::getline(linestream, temp, ',');
 		std::stringstream qsStream(temp);
-		qsStream >> qs;
+		qsStream >> firstSort;
+		qs = (unsigned char) firstSort;
 
 		std::getline(linestream, temp, ',');
 		std::stringstream firstSortStream(temp);
@@ -40,7 +40,6 @@ Event Parser::parse(unsigned int depth, std::ifstream& teams, std::ifstream& mat
 		std::getline(linestream, temp, ',');
 		std::stringstream fourthSortStream(temp);
 		fourthSortStream >> fourthSort;
-
 
 		event.addTeam(number, qs, firstSort, secondSort, thirdSort, fourthSort);
 	}

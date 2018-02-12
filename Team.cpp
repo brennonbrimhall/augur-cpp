@@ -2,7 +2,7 @@
 
 Team::Team(
 		unsigned short number,
-		unsigned char qs,
+		unsigned short qs,
 		unsigned short firstSort,
 		unsigned short secondSort,
 		unsigned short thirdSort,

@@ -4,7 +4,7 @@ class Team {
 private:
 	unsigned short number;
 
-	unsigned char qs;
+	unsigned short qs;
 	
 	unsigned short firstSort;
 	unsigned short secondSort;
@@ -14,7 +14,7 @@ private:
 public:
 	Team(
 		unsigned short number,
-		unsigned char qs,
+		unsigned short qs,
 		unsigned short firstSort,
 		unsigned short secondSort,
 		unsigned short thirdSort,
