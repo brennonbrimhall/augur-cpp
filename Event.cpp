@@ -77,7 +77,7 @@ void Event::calculate(size_t numSims) {
 	std::mt19937_64 generator(rand_dev());
 	std::uniform_int_distribution<unsigned long> distribution(0x00000000, 0xffffffff);
 
-	unsigned long long randomPossibility = 0;
+	unsigned long randomPossibility = 0;
 
 	do {
 		randomPossibility = distribution(generator);
