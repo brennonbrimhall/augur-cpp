@@ -6,6 +6,17 @@ set(CMAKE_CXX_STANDARD 11) # C++11...
 set(CMAKE_CXX_STANDARD_REQUIRED ON) #...is required...
 set(CMAKE_CXX_EXTENSIONS OFF) #...without compiler extensions like gnu++11
 
+include(FindOpenMP)
+
+if(OPENMP_FOUND)
+	option(USE_OPENMP "Use OpenMP to parallelize the computation." ON)
+	if(USE_OPENMP)
+		set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+		set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+	endif(USE_OPENMP)
+endif(OPENMP_FOUND)
+
 add_executable(augur main.cpp Parser.cpp Event.cpp Match.cpp Node.cpp Root.cpp Team.cpp)
 
 install(TARGETS augur

@@ -64,6 +64,7 @@ void Event::winTeam(
 void Event::calculate() {
 	size_t numBranches = pow(2, matches.size());
 
+	#pragma omp parallel for
 	for (size_t i = 0; i < numBranches; i++) {
 		this->calculatePossibility(i);
 	}
