@@ -58,6 +58,9 @@ void Event::winTeam(
 		}
 	}
 
+	std::cerr << "Couldn't find " << number << " in the rankings." << std::endl;
+	std::cerr << "Are you sure that the input files are correct?" << std::endl;
+
 	throw std::exception();
 }
 

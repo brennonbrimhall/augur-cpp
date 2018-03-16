@@ -15,6 +15,8 @@ int main(int argc, char const *argv[]) {
 
 		Event event = Parser::parse(depth, teams, matches);
 
+		std::cerr << "Successfully parsed event." << std::endl;
+
 		if (argc == 4) {
 			event.calculate();
 		} else if (argc == 5) {
