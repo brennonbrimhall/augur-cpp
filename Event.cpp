@@ -83,13 +83,13 @@ void Event::calculate(size_t numSims) {
 
 	unsigned long randomPossibility = 0;
 
-	do {
-		randomPossibility = distribution(generator);
-		randomPossibility << 32;
-		randomPossibility |= distribution(generator);
-	} while (randomPossibility >= pow(2, matches.size()));
-
 	for (size_t i = 0; i < numSims; i++) {
+		do {
+			randomPossibility = distribution(generator);
+			randomPossibility << 32;
+			randomPossibility |= distribution(generator);
+		} while (randomPossibility >= pow(2, matches.size()));
+
 		this->calculatePossibility(randomPossibility);
 	}
 

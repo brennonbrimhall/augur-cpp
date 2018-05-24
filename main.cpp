@@ -21,6 +21,8 @@ int main(int argc, char const *argv[]) {
 			event.calculate();
 		} else if (argc == 5) {
 			unsigned int numSims = atoi(argv[4]);
+			
+			std::cerr << "Monte Carlo: " << numSims << " num Sims" << std::endl;
 			event.calculate(numSims);
 		}
 
