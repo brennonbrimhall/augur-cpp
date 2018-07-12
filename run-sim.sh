@@ -17,7 +17,7 @@
 #SBATCH --qos=test
 
 # Set the max number of threads to use for programs using OpenMP. Should be <=
-# ppn. This will only modify the Augur's behavior if it is build with OpenMP.
+# ppn. This will only modify augur's behavior if it is build with OpenMP.
 export OMP_NUM_THREADS=$SLURM_CPUS_ON_NODE
 
 # Actually run simulations here.  Two examples are given.  The first is a full
