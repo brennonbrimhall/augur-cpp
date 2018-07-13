@@ -71,7 +71,7 @@ bool Team::lessThan (const Team &team2) const {
 				} else {
 					if (fourthSort < team2.fourthSort) {
 						return true;
-					} else if (fourthSort > team2.fourthSort) {
+					} else {
 						return false;
 					}
 				}
