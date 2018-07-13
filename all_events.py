@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def get(endpoint: str):
-    api_key = {'X-TBA-Auth-Key': 'WL5yiW88bhMroRhNwGbszMUEVB6ucWmLi7DrAmANVZxCdih41PCOuYLxNZU0HQke'}
+    api_key = {'X-TBA-Auth-Key': 'INSERT YOUR API KEY HERE'}
     return requests.get(f'https://www.thebluealliance.com/api/v3/{endpoint}', headers=api_key).json()
 
 
