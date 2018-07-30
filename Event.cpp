@@ -126,7 +126,11 @@ void Event::calculatePossibility(unsigned long i) {
 	}
 
 	std::sort(teams.begin(), teams.end());
-	this->updateMonteCarloSummary(teams, probability);
+
+	#pragma omp critical
+	{
+		this->updateMonteCarloSummary(teams, probability);
+	}
 }
 
 void Event::updateSummary(
