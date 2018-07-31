@@ -12,6 +12,21 @@ to simulate.  Augur defaults to brute forcing the search space for thoroughness.
 If the number of Monte Carlo simulations is specified, it will randomly search and
 aggregate the number of trials you specify.
 
+Performance Notes
+-----------------
+
+Tests done on a system with an Intel® Core™ i5-3230M CPU @ 2.60GHz with 7.7 GiB of 
+memory, single threaded.
+* Time - `2.844731013×10-7 * 2 ^ n` (minutes)
+* Space - `0.410394×10-4 * 2 ^ n` (GiB)
+
+Currently, this implementation is capped to about 27 matches - analysis will take 
+~38 min and 6 GiB (6.44245 GB) of memory.  Analyses requiring more matches should
+try to use a Monte Carlo simulation or a supercomputer.
+
+This is approximately 60 times faster than the Python implementation and about 5
+times more efficient with memory.
+
 Building / Installing
 ---------------------
 
