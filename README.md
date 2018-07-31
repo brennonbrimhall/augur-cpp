@@ -31,7 +31,7 @@ make && make install
 ```
 
 You'll need to verify that you have a compiler, a recent CMake, and git installed.
-If you're looking for performance, make sure that you bulid a release build as
+If you're looking for performance, make sure that you build a release binary as
 shown and that CMake has found OpenMP.
 
 ### macOS
@@ -46,7 +46,7 @@ make && make install
 
 You'll need to verify that you have a compiler, a recent CMake, and git installed.
 If you haven't installed a compiler, a window may come up to help you install
-everything and you may need to rerun parts of the above.
+everything and you may need to rerun some commands.
 
 #### OpenMP Support
 
