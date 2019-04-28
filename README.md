@@ -83,7 +83,8 @@ marked "help wanted."
 
 ## Licensing
 
-As I've been the only contributor and this has been a private repository, I've 
-not found it necessary to specify an open source license.  Because of interest by
-others, that will change in the near future.  Contributions will likley be stalled
-until a license is determined (input welcome).
+See [the attached license](https://github.com/brennonbrimhall/augur-cpp/blob/master/LICENSE.txt).
+
+Please note that the GPLv2 license requires that derivative works also be licensed under GPLv2; this is an intentional choice on my part.  If anyone in the FRC community uses it and improves it, I'd like to see those improvements propagated to the repository so everyone can benefit.  This means that if you use this software in your private scouting system, that scouting system will need to be released under a GPLv2 license.
+
+If you feel that this license is not compatible with your use case, feel free to reach out.  We might be able to work together on an alternative license for you or your team.
